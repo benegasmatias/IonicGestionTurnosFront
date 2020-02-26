@@ -1,0 +1,7 @@
+{
+  "name": "gestionTurnos",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

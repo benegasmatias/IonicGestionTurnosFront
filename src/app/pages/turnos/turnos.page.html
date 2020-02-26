@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" ></ion-back-button>
+      
+    </ion-buttons>
+
+  
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+ 
+    <form [formGroup]="form">
+      <ion-item >
+        <ion-label position="floating" >Codigo de presupuesto</ion-label>
+        <ion-input formControlName="codigo" disabled="{{isDisabled}}"  [(ngModel)]="codigo" type="number"></ion-input>
+      </ion-item>
+
+      <ion-button *ngIf='verificado==false' [disabled]="!form.valid" (click)="verificaCodigo()">Verificar</ion-button>
+      <ion-button *ngIf='verificado' [disabled]="!form.valid" (click)="turnosDisponibles()">Solicitar Turno</ion-button>
+    </form>
+      <div class="ion-padding">
+        <a routerLink="/solicitud-presupuesto">Solicitar turno para Presupuesto</a>
+
+      </div>
+  
+
+ 
+  
+</ion-content>

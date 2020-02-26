@@ -1,0 +1,30 @@
+<ion-header>
+ 
+  <ion-toolbar>
+
+    <ion-buttons slot="end">
+      <ion-icon (click)="dismiss()" name="close-circle-outline"></ion-icon>
+      
+    </ion-buttons>
+
+
+    <ion-title>Tunos Disponibles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider *ngIf="turnos==''">
+    <h1>No hay turnos disponibles</h1>
+</ion-item-divider>
+
+<ion-list>
+  <ion-item (click)="presentAlertConfirm(turno)" *ngFor="let turno of turnos">
+    
+    <ion-label >Fecha disponible</ion-label>   <ion-badge color="success">{{turno.dateTime|date:"medium"}}  </ion-badge>
+
+
+
+  </ion-item>
+</ion-list>
+
+</ion-content>

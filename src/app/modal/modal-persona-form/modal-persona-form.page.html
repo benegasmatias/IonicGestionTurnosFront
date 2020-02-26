@@ -1,0 +1,78 @@
+<ion-header>
+ 
+  <ion-toolbar>
+
+    <ion-buttons slot="end">
+      <ion-icon (click)="dismiss()" name="close-circle-outline"></ion-icon>
+      
+    </ion-buttons>
+
+
+    <ion-title>Registro Persona</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content  >
+  <form [formGroup]="form">
+    <!--Datos Persona-->
+  <ion-item-divider>
+    <ion-card-header>
+      <ion-card-subtitle>Datos Personales</ion-card-subtitle>
+     
+    </ion-card-header>
+    
+    <!--Formulario Persona-->
+    <ion-card-content>
+
+    
+
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input  formControlName="nombre" required type="text"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label  position="floating">Apellido</ion-label>
+        <ion-input  formControlName="apellido" required type="text"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating">Dni</ion-label>
+        <ion-input formControlName="dni" required type="numer"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating"><ion-icon name="at"></ion-icon>Correo Electronico</ion-label>
+        <ion-input formControlName="email" required type="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Telefono</ion-label>
+        <ion-input  formControlName="mobile" required type="numer"></ion-input>
+      </ion-item>
+   
+    </ion-card-content>
+
+    
+  </ion-item-divider>
+
+     <!--Datos Vehiculo-->
+
+
+
+ <!-- <ion-item>
+    <ion-label>Seleccione un sector</ion-label>
+    <ion-select  formControlName="sector"  [(ngModel)]="sector_id" interface="action-sheet">
+      <ion-select-option value={{sector.id}}  *ngFor="let sector of sectores">{{sector.nombre}}</ion-select-option>
+     
+    </ion-select>
+  </ion-item>
+-->
+  
+
+
+  <ion-button (click)="guardar()" [disabled]="!form.valid" expand="block" color="success">
+   Guardar
+    <ion-icon name="arrow-round-forward"></ion-icon>
+  </ion-button>
+
+</form>
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" ></ion-back-button>
+      
+    </ion-buttons>
+    <ion-title>Presupuesto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Igrese Patente</ion-label>
+    <ion-input [(ngModel)]="vehiculo.patente"    type="text"></ion-input>
+  </ion-item>
+
+
+ 
+  <ion-button  expand="block" color="google" (click)="SolicitudPresupuesto()" block>Solicitar Presupuesto</ion-button>
+</ion-content>

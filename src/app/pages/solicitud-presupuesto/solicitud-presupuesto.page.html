@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+
+    </ion-buttons>
+    <ion-title>Presupuesto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label position="floating">Ingrese Dni</ion-label>
+        <ion-input disabled="{{isDisabled}}" formControlName="dni" type="number"></ion-input>
+      </ion-item>
+
+
+      <!--
+<ion-  button *ngIf="verificaDNI=='si'" (click)="buscarVehiculos()">Buscar Vehiculos</ion- button>
+ -->
+      <!--Selector de Vehiculos de una persona-->
+
+      <ion-item *ngIf="vehicles">
+        <ion-label>Patente</ion-label>
+        <ion-select formControlName="patente" placeholder="Seleccione una patente"
+          interface="popover">
+          <ion-select-option value={{vehiculo.id_car}} *ngFor="let vehiculo of vehiculos">{{vehiculo.patent}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="vehicles">
+        <ion-label>Seleccione un sector</ion-label>
+        <ion-select  formControlName="sector"   interface="action-sheet">
+          <ion-select-option value={{sector.id}}  *ngFor="let sector of sectores">{{sector.nombre}}</ion-select-option>
+         
+        </ion-select>
+      </ion-item>
+
+      <ion-row flex-wrap: nowrap >
+        <ion-col>
+          <ion-button size="small" color="success" *ngIf="verificaDNI && vehicles"  (click)="vehicleModal()">
+            <ion-icon name="add-circle"></ion-icon>Vehiculo
+          </ion-button>
+
+        </ion-col>
+        <ion-col>
+
+          <ion-button size="small" *ngIf="verificaDNI && vehicles" [disabled]="!form.valid"
+            (click)="SolicitarPresupuestoModal()">Solicitar Presupuesto </ion-button>
+          
+        </ion-col>
+       
+      </ion-row>
+      <ion-button *ngIf="!verificaDNI" [disabled]="!form.valid" (click)="verificaDni()">Verificar</ion-button>
+
+      <!-- <ion-button  expand="block" color="google" [disabled]="!form.valid" [routerLink]="['/particular-form',patent|borraEspacios|lowercase]">Solicitar Presupuesto</ion-button>-->
+
+    </form>
+  </ion-grid>
+</ion-content>
